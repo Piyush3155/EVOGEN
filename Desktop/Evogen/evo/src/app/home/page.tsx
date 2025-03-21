@@ -22,7 +22,7 @@ const eventData = [
   {
     name: "Brahma's DevScript",
     tagline: "From Vedas to variables, The Code Awaken!",
-    icon: "/placeholder.svg?height=100&width=100",
+    icon: "/brahma.jpeg?height=100&width=100",
   },
   {
     name: "Designing",
@@ -30,8 +30,8 @@ const eventData = [
     icon: "/placeholder.svg?height=100&width=100",
   },
   {
-    name: "Cyber Security",
-    tagline: "Guard the Sacred Knowledge",
+    name: "Abhimanyu Cyber Vyuh",
+    tagline: "In every loop, in every bind—Abhimanyu hacks the mastermind.",
     icon: "/placeholder.svg?height=100&width=100",
   },
   {
@@ -40,13 +40,13 @@ const eventData = [
     icon: "/placeholder.svg?height=100&width=100",
   },
   {
-    name: "Data Analytics",
-    tagline: "Decipher the Cosmic Patterns",
-    icon: "/placeholder.svg?height=100&width=100",
+    name: "Varahmihira’s Data Nexus",
+    tagline: "Decode ancient wisdom, analyze cosmic patterns, and predict the digital future.",
+    icon: "/data.jpeg?height=100&width=100",
   },
   {
-    name: "Communication",
-    tagline: "Speak the Language of Gods",
+    name: "Chanakya's VakyaNeeti",
+    tagline: "Where strategy meets speech, and influence rules the market",
     icon: "/placeholder.svg?height=100&width=100",
   },
 ]
@@ -205,13 +205,13 @@ export default function Home() {
       whileHover={{ y: -5 }}
       className="flex flex-col items-center bg-amber-100/90 backdrop-blur-sm rounded-lg shadow-lg p-6 hover:shadow-amber-300/20 transition-all duration-300"
     >
-      <div className="w-24 h-24 rounded-full border-4 border-amber-500 bg-amber-50 flex items-center justify-center overflow-hidden mb-4">
+      <div className="w-48 h-48 rounded-full border-4 border-amber-500 bg-amber-50 flex items-center justify-center overflow-hidden mb-4">
         <Image
           src={event.icon || "/placeholder.svg"}
           alt={event.name}
-          width={80}
-          height={80}
-          className="object-contain"
+          width={220}
+          height={220}
+          className="object-fill"
         />
       </div>
       <h3 className="font-bold text-lg text-center text-amber-900">{event.name}</h3>
@@ -293,13 +293,13 @@ export default function Home() {
             </div>
 
             <div className="flex space-x-6">
-              <a href="#" className="text-white hover:text-amber-400 transition-colors">
+              <a href="https://www.facebook.com/KLSGCCBGM/" className="text-white hover:text-amber-400 transition-colors">
                 <Facebook className="h-6 w-6" />
               </a>
-              <a href="#" className="text-white hover:text-amber-400 transition-colors">
+              <a href="https://www.instagram.com/gcc_bca/?hl=en" className="text-white hover:text-amber-400 transition-colors">
                 <Instagram className="h-6 w-6" />
               </a>
-              <a href="#" className="text-white hover:text-amber-400 transition-colors">
+              <a href="https://www.youtube.com/@gccbca2574" className="text-white hover:text-amber-400 transition-colors">
                 <Youtube className="h-6 w-6" />
               </a>
             </div>
