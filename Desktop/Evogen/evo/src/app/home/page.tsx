@@ -91,40 +91,55 @@ export default function Home() {
     <div className="relative w-full overflow-x-hidden min-h-screen">
       {/* Background */}
       <div className="fixed inset-0 -z-10 w-full h-full">
-        <Image src="/background.jpg?height=1080&width=1920" alt="Background" fill className="object-cover" priority />
+        <Image src="/b3.jpg?height=1080&width=1920" alt="Background" fill className="object-cover" priority />
       </div>
 
       {/* Mobile Menu Button */}
       <button
-        onClick={toggleMenu}
-        className="fixed top-4 right-4 z-50 p-2 bg-amber-500 rounded-full shadow-lg md:hidden"
-      >
-        {isMenuOpen ? <X className="h-6 w-6 text-white" /> : <Menu className="h-6 w-6 text-white" />}
-      </button>
+    onClick={toggleMenu}
+    className="fixed top-4 right-4 z-50 p-3 bg-amber-500 rounded-full shadow-lg backdrop-blur-md hover:scale-105 transition-transform md:hidden"
+  >
+    {isMenuOpen ? (
+      <X className="h-6 w-6 text-white" />
+    ) : (
+      <Menu className="h-6 w-6 text-white" />
+    )}
+  </button>
 
-      {/* Mobile Navigation Menu */}
-      <div
-        className={`fixed inset-0 bg-black/90 z-40 transform ${isMenuOpen ? "translate-x-0" : "translate-x-full"} transition-transform duration-300 md:hidden`}
-      >
-        <div className="flex flex-col items-center justify-center h-full gap-8 text-white">
-          <a href="#home" onClick={toggleMenu} className="text-2xl font-bold hover:text-amber-400 transition-colors">
-            Home
-          </a>
-          <a href="#events" onClick={toggleMenu} className="text-2xl font-bold hover:text-amber-400 transition-colors">
-            Events
-          </a>
-          <a
-            href="#register"
-            onClick={toggleMenu}
-            className="text-2xl font-bold hover:text-amber-400 transition-colors"
-          >
-            Register
-          </a>
-          <a href="#contact" onClick={toggleMenu} className="text-2xl font-bold hover:text-amber-400 transition-colors">
-            Contact
-          </a>
-        </div>
-      </div>
+  {/* Glassmorphic Mobile Menu */}
+  <div
+    className={`fixed inset-0 z-40 bg-black/30 backdrop-blur-md transition-transform duration-300 transform ${
+      isMenuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
+    } md:hidden`}
+  >
+    <div className="flex flex-col items-center justify-center h-full gap-10 text-white transition-opacity">
+      {["Home", "Events", "Register", "Contact"].map((item, index) => (
+        <a
+          key={item}
+          href={`#${item.toLowerCase()}`}
+          onClick={toggleMenu}
+          className="text-3xl font-semibold hover:text-amber-400 transform transition-all duration-300 hover:scale-110"
+          style={{ animation: `fadeIn 0.3s ease ${index * 0.1 + 0.2}s both` }}
+        >
+          {item}
+        </a>
+      ))}
+    </div>
+  </div>
+
+  {/* Custom Keyframes for Fade-In */}
+  <style jsx>{`
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  `}</style>
 
       {/* Header */}
       <header id="home" className="w-full bg-black/40 backdrop-blur-sm text-white z-10 py-2 sticky top-0">
@@ -160,10 +175,10 @@ export default function Home() {
       </header>
 
       {/* Hero Section with EVOGEN Title */}
-      <section className="relative w-full py-20 md:py-32 flex flex-col items-center justify-center overflow-hidden">
+      <section className="relative w-full py-20 md:py-32  flex flex-col items-center justify-center overflow-hidden">
         {/* Sanskrit Text - Background */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 w-full text-center opacity-15">
-          <h1 className="text-[60px] md:text-[180px] font-extrabold text-black select-none">।। एवोजेन ।।</h1>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 w-full text-center opacity-50">
+          <h1 className="text-[60px] md:text-[180px] font-extrabold text-white select-none">।। एवोजेन ।।</h1>
         </div>
 
         {/* EVOGEN Title - Centered for all devices */}
@@ -171,15 +186,48 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="z-10 text-center px-4"
+          className="z-10 text-center px-4 pb-18 mt-18"
         >
-          <h1 className="text-6xl md:text-8xl font-extrabold text-amber-500 drop-shadow-lg relative top-30">EVOGEN</h1>
+          <h1 className="text-6xl md:text-8xl font-extrabold text-amber-500 drop-shadow-lg relative top-30">Evogen</h1>
           
         </motion.div>
       </section>
-    <br /><br /><br /><br /><br /><br /><br /><br />
+    
+      <section className="relative w-full py-20 md:py-32 flex flex-col items-center justify-center overflow-hidden">
+  <div className="w-full px-6 md:px-14 py-16 md:py-24 bg-black/50 backdrop-blur-sm mt-20 md:mt-60 rounded-xl">
+    <h2 className="text-3xl md:text-5xl font-bold text-amber-500 mb-12 md:mb-14">
+      About Evogen
+    </h2>
+    <hr />
+    <br />
+    <div className="flex flex-col md:flex-row items-center justify-between gap-10">
+      {/* Text Section */}
+      <div className="w-full md:w-1/2 flex justify-center">
+        <Image
+          src="/b2.jpeg"
+          alt="About"
+          width={500}
+          height={500}
+          className="rounded-lg object-cover max-w-full h-auto"
+        />
+      </div>
+
+      <div className="w-full md:w-1/2">
+        <p className="text-base md:text-2xl text-white max-w-2xl mx-auto text-justify">
+          Evogen is a dynamic platform crafted for students to explore, elevate, and exhibit their talents across a spectrum of technical domains including problem-solving, software innovation, cybersecurity, and tech-driven gaming. Designed to inspire creativity and drive, the event nurtures both technical excellence and entrepreneurial spirit. Evogen isn’t just about challenges—it’s about connections, creativity, and growth. With events that spark curiosity, interactions that ignite ideas, and experiences that empower individuals, this edition of Evogen promises to awaken the innovator within you and transform potential into performance. Let the evolution begin!
+        </p>
+      </div>
+
+      {/* Image Section */}
+     
+    </div>
+    <br />
+    <hr />
+  </div>
+</section>
+
       {/* Events Section */}
-      <section id="events" className="w-full py-16 md:py-24 bg-black/50 backdrop-blur-sm">
+      <section id="events" className="w-full py-16 md:py-24 bg-black/50 backdrop-blur-sm mt-50">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -225,6 +273,18 @@ export default function Home() {
 
         </div>
       </section>
+
+    {/* Countdown Timer Section */}
+<section className="w-full py-8 md:py-12 bg-black/60 backdrop-blur-sm text-white text-center">
+  <h2 className="text-2xl md:text-4xl font-bold text-amber-500 mb-4">Countdown to Evogen</h2>
+  <div className="flex justify-center gap-4 text-lg md:text-2xl font-semibold">
+    <div>{days}d</div>
+    <div>{hours}h</div>
+    <div>{minutes}m</div>
+    <div>{seconds}s</div>
+  </div>
+</section>
+
 
      
       {/* Contact Section */}
@@ -304,7 +364,7 @@ export default function Home() {
               </a>
             </div>
           </div>
-
+  
           <div className="border-t border-white/20 mt-8 pt-8 text-center">
             <p className="text-white/60">
               © {new Date().getFullYear()} EVOGEN - BCA Department, Gogte College of Commerce. All rights reserved.
