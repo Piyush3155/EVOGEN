@@ -1,10 +1,33 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import localFont from 'next/font/local';
 import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+
+const Requiem = localFont({
+  src: [
+    {
+      path: './fonts/Requiem.ttf', // Make sure this path is correct!
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-requiem',
+});
+
+const modern = localFont({
+  src: [
+    {
+      path: './fonts/ModernAesthetic-DemoVersion-Regular.ttf', // Make sure this path is correct!
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-modern',
 });
 
 const geistMono = Geist_Mono({
@@ -25,7 +48,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${Requiem.variable} ${modern.variable} antialiased`}
       >
         {children}
       </body>
