@@ -48,7 +48,6 @@ export default function Register() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [formError, setFormError] = useState("")
-  const [registrationSuccess, setRegistrationSuccess] = useState(false)
 
   const [teamData, setTeamData] = useState<TeamData>({
     teamName: "",
@@ -153,7 +152,7 @@ export default function Register() {
 
       if (result.success) {
         setIsSubmitted(true)
-        setRegistrationSuccess(true)
+        
       } else {
         setFormError(result.message || "Registration failed. Please try again.")
       }
@@ -244,7 +243,7 @@ export default function Register() {
                   </div>
                   <h2 className="text-xl font-bold text-cyan-300">Thank You for Registering</h2>
                   <p className="text-center text-cyan-100 max-w-md">
-                    Your team "{teamData.teamName}" has been successfully registered for Evogen 14.0. We'll send a
+                    Your team &quot;{teamData.teamName}&quot; has been successfully registered for Evogen 14.0. We&apos;ll send a
                     confirmation email with further details shortly.
                   </p>
                 </div>

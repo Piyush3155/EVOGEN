@@ -501,7 +501,7 @@ export default function Home() {
           </div>
 
           <div className="text-center flex-grow">
-            <p className="text-xs md:text-lg font-medium text-cyan-300">Karnatak Law Society's</p>
+            <p className="text-xs md:text-lg font-medium text-cyan-300">Karnatak Law Society&apos;s</p>
             <p className="font-semibold text-white text-sm md:text-2xl">Gogte College of Commerce</p>
             <p className="font-bold text-white text-sm md:text-2xl">Bachelor of Computer Applications</p>
             <p className="font-light text-cyan-300 text-xs md:text-base">Presents</p>

@@ -4,7 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { ArrowLeft, Music, Ticket, Calendar, MapPin, Users, CheckCircle, AlertCircle, User, Mail, Phone, CreditCard } from 'lucide-react'
+import { ArrowLeft, Music, Ticket, Calendar, MapPin, CheckCircle, AlertCircle, User, CreditCard } from 'lucide-react'
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
