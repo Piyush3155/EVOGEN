@@ -23,24 +23,10 @@ interface TicketData {
   ticketCount: number
 }
 
-interface TicketResponse {
-  id: string
-  name: string
-  email: string
-  mobileNumber: string
-  teamName: string
-  ticketType: string
-  ticketCount: number
-  totalAmount: number
-  ticketCode: string
-  createdAt: string
-}
-
 export default function TicketBooking() {
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
   const [formError, setFormError] = useState("")
-  const [ticketResponse] = useState<TicketResponse | null>(null)
 
   const [ticketData, setTicketData] = useState<TicketData>({
     name: "",
@@ -123,6 +109,10 @@ export default function TicketBooking() {
     return basePrice * ticketData.ticketCount
   }
 
+  const generateTicketCode = () => {
+    return `EVG-${Math.random().toString(36).substring(2, 8).toUpperCase()}`
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
@@ -131,11 +121,18 @@ export default function TicketBooking() {
     }
 
     setIsSubmitting(true)
-
-
+    
+    // Simulate API call with timeout
+    setTimeout(() => {
+      setIsSubmitting(false)
+      setIsSubmitted(true)
+    }, 1500)
   }
 
-  if (isSubmitted && ticketResponse) {
+  if (isSubmitted) {
+    const ticketCode = generateTicketCode()
+    const totalAmount = calculatePrice()
+    
     return (
       <div className="min-h-screen bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
         <div className="w-full max-w-3xl">
@@ -158,29 +155,29 @@ export default function TicketBooking() {
                         <h3 className="text-lg font-bold text-cyan-300">Evogen Concert</h3>
                       </div>
                       <div className="px-3 py-1 bg-cyan-500/20 rounded-full text-cyan-300 text-sm">
-                        {ticketResponse.ticketType}
+                        {ticketData.ticketType}
                       </div>
                     </div>
                     
                     <div className="space-y-4">
                       <div className="flex justify-between">
                         <span className="text-cyan-100/70">Ticket Code:</span>
-                        <span className="font-mono font-bold text-cyan-300">{ticketResponse.ticketCode}</span>
+                        <span className="font-mono font-bold text-cyan-300">{ticketCode}</span>
                       </div>
                       
                       <div className="flex justify-between">
                         <span className="text-cyan-100/70">Name:</span>
-                        <span className="text-cyan-100">{ticketResponse.name}</span>
+                        <span className="text-cyan-100">{ticketData.name}</span>
                       </div>
                       
                       <div className="flex justify-between">
                         <span className="text-cyan-100/70">Tickets:</span>
-                        <span className="text-cyan-100">{ticketResponse.ticketCount} × {ticketResponse.ticketType}</span>
+                        <span className="text-cyan-100">{ticketData.ticketCount} × {ticketData.ticketType}</span>
                       </div>
                       
                       <div className="flex justify-between">
                         <span className="text-cyan-100/70">Total Amount:</span>
-                        <span className="text-cyan-300 font-bold">₹{ticketResponse.totalAmount}</span>
+                        <span className="text-cyan-300 font-bold">₹{totalAmount}</span>
                       </div>
                       
                       <div className="flex justify-between">
@@ -195,7 +192,7 @@ export default function TicketBooking() {
                     </div>
                     
                     <div className="mt-6 pt-4 border-t border-cyan-500/20 text-center">
-                      <p className="text-sm text-cyan-100/70">A confirmation has been sent to your email: {ticketResponse.email}</p>
+                      <p className="text-sm text-cyan-100/70">A confirmation has been sent to your email: {ticketData.email}</p>
                     </div>
                   </div>
                 </div>

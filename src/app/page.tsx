@@ -69,16 +69,7 @@ const developersData = [
     photo: "/piyush.jpeg?height=100&width=100",
     contact: "+91 7019450720  ",
   },
-  {
-    name: "Srinidhi Kittur",
-    photo: "/placeholder.svg?height=100&width=100",
-    contact: "+91 7022923314",
-  },
-  {
-    name: "Gourav Saplinga",
-    photo: "/gourav.jpeg?height=100&width=100",
-    contact: "+91 7654321097",
-  },
+  
 ]
 
 // Event data

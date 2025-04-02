@@ -46,7 +46,7 @@ interface TeamData {
 export default function Register() {
   const [currentTab, setCurrentTab] = useState("coding")
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
   const [formError, setFormError] = useState("")
 
   const [teamData, setTeamData] = useState<TeamData>({
@@ -138,7 +138,30 @@ export default function Register() {
     }
 
     setIsSubmitting(true)
- 
+
+    try {
+      const response = await fetch("/api/v1/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(teamData),
+      })
+
+      const result = await response.json()
+
+      if (result.success) {
+        setIsSubmitted(true)
+        
+      } else {
+        setFormError(result.message || "Registration failed. Please try again.")
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error)
+      setFormError("An error occurred. Please try again later.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const renderMemberFields = (category: keyof TeamData, index: number, memberNumber: number) => {
