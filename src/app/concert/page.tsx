@@ -38,9 +38,9 @@ interface TicketResponse {
 
 export default function TicketBooking() {
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitted] = useState(false)
   const [formError, setFormError] = useState("")
-  const [ticketResponse, setTicketResponse] = useState<TicketResponse | null>(null)
+  const [ticketResponse] = useState<TicketResponse | null>(null)
 
   const [ticketData, setTicketData] = useState<TicketData>({
     name: "",
@@ -132,30 +132,7 @@ export default function TicketBooking() {
 
     setIsSubmitting(true)
 
-    try {
-      const response = await fetch('/api/v1/tickets', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(ticketData),
-      })
 
-      const result = await response.json()
-
-      if (result.success) {
-        setTicketResponse(result.ticket)
-        alert("Your Ticket has been booked suucessfully")
-        setIsSubmitted(true)
-      } else {
-        setFormError(result.message || 'Ticket booking failed. Please try again.')
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error)
-      setFormError('An error occurred. Please try again later.')
-    } finally {
-      setIsSubmitting(false)
-    }
   }
 
   if (isSubmitted && ticketResponse) {
