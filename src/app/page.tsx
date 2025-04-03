@@ -26,7 +26,6 @@ import {
   VolumeX,
 } from "lucide-react"
 import ThreeDCarousel from "@/components/3d-carousel"
-
 // Organizers data
 const organizersData = [
   {
@@ -65,10 +64,21 @@ const organizersData = [
 
 // Developers data
 const developersData = [
+  
   {
     name: "Piyush Gurav",
     photo: "/piyush.jpeg?height=100&width=100",
     contact: "+91 7019450720  ",
+  },
+  {
+    name: "Gourav Sapaliga",
+    photo: "/gourav.jpeg?height=100&width=100",
+    contact: "+91 9686421932",
+  },
+  {
+    name: "Srinidhi Kittur",
+    photo: "/placeholder.svg?height=100&width=100",
+    contact: "+91 99560*****  ",
   },
 ]
 
@@ -357,6 +367,7 @@ export default function Home() {
       className="relative w-full overflow-x-hidden min-h-screen bg-gray-900 text-white "
       style={{ fontFamily: "var(--font-mayan)" }}
     >
+      
       {/* Mobile Menu Button */}
       <button
         onClick={toggleMenu}
@@ -637,6 +648,7 @@ export default function Home() {
         </div>
       </section>
 
+      
       <section className="py-16 bg-black" id="events">
         {/* Events Section */}
         <h2
@@ -913,13 +925,13 @@ export default function Home() {
 
               <div className="p-6">
                 <div className="mb-8 relative">
-                  <div className="w-full h-96 md:h-80 overflow-hidden rounded-lg border border-cyan-500/30 glow-border">
+                  <div className="w-full  md:h-80 overflow-hidden rounded-lg border border-cyan-500/30 glow-border flex justify-center items-center">
                     <Image
                       src={selectedEvent.eventImage || "/placeholder.svg"}
                       alt={selectedEvent.name}
                       width={800}
-                      height={400}
-                      className="w-full h-full object-cover"
+                      height={600}
+                      className="w-5/12 h-full object-cover"
                     />
                   </div>
                 </div>
