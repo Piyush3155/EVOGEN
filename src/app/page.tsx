@@ -355,12 +355,12 @@ export default function Home() {
   return (
     <div
       className="relative w-full overflow-x-hidden min-h-screen bg-gray-900 text-white "
-      style={{ fontFamily: "var(--font-requiem)" }}
+      style={{ fontFamily: "var(--font-mayan)" }}
     >
       {/* Mobile Menu Button */}
       <button
         onClick={toggleMenu}
-        className="fixed top-8 right-6 z-50 p-3 bg-cyan-500/80 rounded-full shadow-lg backdrop-blur-md hover:bg-cyan-400/80 transition-all duration-300 md:hidden"
+        className="fixed top-14 right-6 z-50 p-3 bg-cyan-500/80 rounded-full shadow-lg backdrop-blur-md hover:bg-cyan-400/80 transition-all duration-300 md:hidden"
       >
         {isMenuOpen ? <X className="h-6 w-6 text-white" /> : <Menu className="h-6 w-6 text-white" />}
       </button>
@@ -571,11 +571,8 @@ export default function Home() {
           </h1>
           <br />
           <p
-            className="text-xl font-extrabold drop-shadow-[0_0_15px_rgba(255,215,0,0.5)] bg-clip-text text-transparent"
+            className="text-xl font-extrabold drop-shadow-[0_0_15px_rgba(255,215,0,0.5)] text-gradient-to-tr from-cyan-400 to-cyan-300"
             style={{
-              backgroundImage: "url('/textbg.jpg')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
               fontFamily: "var(--font-modern)",
             }}
           >
@@ -617,7 +614,7 @@ export default function Home() {
             <div className="w-full md:w-1/2">
               <p
                 className="text-base md:text-2xl text-cyan-100 max-w-2xl mx-auto text-justify "
-                style={{ fontFamily: "var(--font-requiem)" }}
+                style={{ fontFamily: "var(--font-mayan)" }}
               >
                 Evogen is a dynamic platform that empowers students to unleash their creativity and technical skills.
                 From coding and web development to designing and UI/UX, it provides exciting opportunities to build
@@ -637,7 +634,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16 bg-black">
+      <section className="py-16 bg-black" id="events">
         {/* Events Section */}
         <h2
           className="text-3xl md:text-5xl text-center font-bold bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text text-transparent mb-12 md:mb-14"
@@ -750,7 +747,7 @@ export default function Home() {
 
       {/* Countdown Timer Section */}
       <section className="w-full py-8 md:py-12 bg-black/60 backdrop-blur-sm text-white text-center border-t border-b border-cyan-500/20">
-        <h2 className="text-2xl md:text-4xl font-bold text-cyan-400 mb-4">Countdown to Evogen</h2>
+        <h2 className="text-2xl md:text-4xl font-bold text-cyan-400 mb-4" style={{ fontFamily: "var(--font-requiem)" }}>Countdown to Evogen</h2>
         <div className="flex justify-center gap-8 text-lg md:text-2xl font-semibold">
           <div className="flex flex-col items-center">
             <div className="w-16 h-16 md:w-20 md:h-20 rounded-lg bg-black/80 border border-cyan-500/50 flex items-center justify-center text-cyan-300 glow-border">
@@ -789,7 +786,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-cyan-400 mb-4">Contact Us</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-cyan-400 mb-4" style={{ fontFamily: "var(--font-requiem)" }}>Contact Us</h2>
             <p className="text-cyan-100 text-lg max-w-2xl mx-auto">Have questions? Reach out to our team</p>
           </motion.div>
 
@@ -840,7 +837,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
-              <h2 className="text-2xl font-bold text-cyan-400">EVOGEN 14.0</h2>
+              <h2 className="text-2xl font-bold text-cyan-400" style={{ fontFamily: "var(--font-requiem)" }}>EVOGEN 14.0</h2>
               <p className="text-cyan-100/70 mt-1">A Tech Fest</p>
             </div>
 
