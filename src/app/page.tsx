@@ -25,6 +25,7 @@ import {
   Volume2,
   VolumeX,
 } from "lucide-react"
+import ThreeDCarousel from "@/components/3d-carousel"
 
 // Organizers data
 const organizersData = [
@@ -69,7 +70,6 @@ const developersData = [
     photo: "/piyush.jpeg?height=100&width=100",
     contact: "+91 7019450720  ",
   },
-  
 ]
 
 // Event data
@@ -349,7 +349,7 @@ export default function Home() {
     router.push("/register")
   }
 
-  const handleconcertClick = () =>{
+  const handleconcertClick = () => {
     router.push("/concert")
   }
   return (
@@ -586,6 +586,9 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* 3D Carousel Section - Added above the About section */}
+      <ThreeDCarousel />
+
       {/* About Section */}
       <section className="relative w-full py-20 md:py-32 flex flex-col items-center justify-center overflow-hidden">
         <div className="w-full px-6 md:px-14 py-16 md:py-24 bg-black/50 backdrop-blur-sm mt-20 md:mt-10 rounded-xl border border-cyan-500/20">
@@ -709,7 +712,8 @@ export default function Home() {
           whileTap={{ scale: 0.95 }}
           onClick={handleconcertClick}
         >
-          Concert<MicVocal className="ml-2 h-5 w-5" />
+          Concert
+          <MicVocal className="ml-2 h-5 w-5" />
         </motion.button>
       </div>
       {/* Organizers and Developers Buttons - Added after events section */}
@@ -747,7 +751,9 @@ export default function Home() {
 
       {/* Countdown Timer Section */}
       <section className="w-full py-8 md:py-12 bg-black/60 backdrop-blur-sm text-white text-center border-t border-b border-cyan-500/20">
-        <h2 className="text-2xl md:text-4xl font-bold text-cyan-400 mb-4" style={{ fontFamily: "var(--font-requiem)" }}>Countdown to Evogen</h2>
+        <h2 className="text-2xl md:text-4xl font-bold text-cyan-400 mb-4" style={{ fontFamily: "var(--font-requiem)" }}>
+          Countdown to Evogen
+        </h2>
         <div className="flex justify-center gap-8 text-lg md:text-2xl font-semibold">
           <div className="flex flex-col items-center">
             <div className="w-16 h-16 md:w-20 md:h-20 rounded-lg bg-black/80 border border-cyan-500/50 flex items-center justify-center text-cyan-300 glow-border">
@@ -786,7 +792,12 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-cyan-400 mb-4" style={{ fontFamily: "var(--font-requiem)" }}>Contact Us</h2>
+            <h2
+              className="text-3xl md:text-5xl font-bold text-cyan-400 mb-4"
+              style={{ fontFamily: "var(--font-requiem)" }}
+            >
+              Contact Us
+            </h2>
             <p className="text-cyan-100 text-lg max-w-2xl mx-auto">Have questions? Reach out to our team</p>
           </motion.div>
 
@@ -837,7 +848,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
-              <h2 className="text-2xl font-bold text-cyan-400" style={{ fontFamily: "var(--font-requiem)" }}>EVOGEN 14.0</h2>
+              <h2 className="text-2xl font-bold text-cyan-400" style={{ fontFamily: "var(--font-requiem)" }}>
+                EVOGEN 14.0
+              </h2>
               <p className="text-cyan-100/70 mt-1">A Tech Fest</p>
             </div>
 

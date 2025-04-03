@@ -46,8 +46,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "EVOGEN 14.o",
-  description: "EVOGEN 14.o",
+  title: "EVOGEN 14.0 ",
+  description: "EVOGEN 14.0",
 };
 
 export default function RootLayout({
